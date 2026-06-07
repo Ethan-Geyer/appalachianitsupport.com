@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Konami Terminal Easter Egg</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Terminal Overlay */
+  #terminal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    color: #00ff66;
+    font-family: "Courier New", monospace;
+    display: none;
+    padding: 20px;
+    z-index: 9999;
+  }
+
+  #terminal-window {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  #terminal-output {
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+  }
+
+  #terminal-input-line {
+    display: flex;
+    align-items: center;
+  }
+
+  #terminal-input {
+    background: transparent;
+    border: none;
+    color: #00ff66;
+    outline: none;
+    flex: 1;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>Konami Code Terminal Demo</h1>
+<p>Enter the Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A</p>
+
+<!-- Terminal HTML -->
+<div id="terminal-overlay">
+  <div id="terminal-window">
+    <pre id="terminal-output">Fake Terminal Activated.
+Type 'help' for commands.
+</pre>
+    <div id="terminal-input-line">
+      <span>&gt;</span>
+      <input id="terminal-input" type="text" autofocus />
+    </div>
+  </div>
+</div>
+
+<!-- Konami Code Script -->
+<script>
+const konami = [
+  "ArrowUp","ArrowUp","ArrowDown","ArrowDown",
+  "ArrowLeft","ArrowRight","ArrowLeft","ArrowRight",
+  "b","a"
+];
+
+let konamiPosition = 0;
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === konami[konamiPosition]) {
+    konamiPosition++;
+    if (konamiPosition === konami.length) {
+      activateTerminal();
+      konamiPosition = 0;
+    }
+  } else {
+    konamiPosition = 0;
+  }
+});
+
+function activateTerminal() {
+  document.getElementById("terminal-overlay").style.display = "block";
+  document.getElementById("terminal-input").focus();
+}
+</script>
+
+<!-- Terminal Command Logic -->
+<script>
+const output = document.getElementById("terminal-output");
+const input = document.getElementById("terminal-input");
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const cmd = input.value.trim();
+    handleCommand(cmd);
+    input.value = "";
+  }
+});
+
+function handleCommand(cmd) {
+  switch(cmd.toLowerCase()) {
+    case "help":
+      print("Available commands:\nhelp\nstatus\ncoffee\nclear\nexit");
+      break;
+    case "status":
+      print("All systems operational.");
+      break;
+    case "coffee":
+      print("Brewing... ERROR: No coffee detected.");
+      break;
+    case "clear":
+      output.textContent = "";
+      break;
+    case "exit":
+      document.getElementById("terminal-overlay").style.display = "none";
+      break;
+    default:
+      print("Unknown command: " + cmd);
+  }
+}
+
+function print(text) {
+  output.textContent += "\n" + text;
+}
+</script>
+
+</body>
+</html>
