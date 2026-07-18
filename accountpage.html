@@ -1,0 +1,37 @@
+---
+permalink: /account
+title: My Account
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+<h1>My Account</h1>
+
+<div id="login-container" style="display:none;">
+    <p>You must be logged in to view your account.</p>
+    <button id="login-btn">Login</button>
+</div>
+
+<div id="account-container" style="display:none;">
+    <h2>Welcome, <span id="user-name"></span></h2>
+    <p>Email: <span id="user-email"></span></p>
+
+    <h3>Your Invoices</h3>
+    <div id="invoice-list"></div>
+
+    <button id="logout-btn">Logout</button>
+</div>
+
+<script src="https://alcdn.msauth.net/browser/2.37.0/js/msal-browser.min.js"></script>
+<script src="/auth.js"></script>
+<script src="/account.js"></script>
+
+</body>
+</html>

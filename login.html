@@ -29,5 +29,19 @@ title: Appalachian IT Support - Login
 
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const account = msalInstance.getActiveAccount();
+
+        if (account) {
+            // Already logged in → redirect to account page
+            window.location.href = "/account";
+        } else {
+            // Not logged in → show login button
+            document.getElementById("login-card").style.display = "block";
+        }
+    });
+</script>
+
 </body>
 </html>

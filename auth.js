@@ -9,21 +9,25 @@ const msalConfig = {
 
 const msalInstance = new msal.PublicClientApplication(msalConfig);
 
-function login() {
-    console.log("Login clicked");
-    msalInstance.loginRedirect();
-}
-
-function logout() {
-    msalInstance.logout();
-}
-
-msalInstance.handleRedirectPromise().then((response) => {
-    if (response) {
+// Handle redirect response
+msalInstance.handleRedirectPromise().then(response => {
+    if (response && response.account) {
         msalInstance.setActiveAccount(response.account);
     }
 });
 
-function getAccount() {
-    return msalInstance.getActiveAccount();
+// Login function used by /login page
+function login() {
+    msalInstance.loginRedirect();
 }
+
+// Logout function used by /account page
+function logout() {
+    msalInstance.logoutRedirect({
+        postLogoutRedirectUri: "https://appalachianitsupport.com/"
+    });
+}
+
+
+
+
