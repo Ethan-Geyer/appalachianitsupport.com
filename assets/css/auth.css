@@ -1,0 +1,102 @@
+/* ============================================
+   Appalachian IT Support — Auth Page Styling
+   Matches your site's dark theme + blue accent
+   ============================================ */
+
+body {
+    background: #1c1d26; /* Dark slate */
+    color: #ffffff;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Center wrapper */
+.auth-wrapper {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Card container */
+.auth-card {
+    background: #2a2b38;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.45);
+    width: 55%;
+}
+
+/* Headings */
+h1 {
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* Buttons */
+button {
+    background: #4a9eff;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #6ab0ff;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Logo container */
+.auth-logo {
+    width: 35%;
+    text-align: center;
+}
+
+.auth-logo img {
+    width: 260px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+/* Dashboard username */
+#username {
+    font-weight: 600;
+    color: #4a9eff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .auth-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .auth-card {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .auth-logo {
+        width: 100%;
+    }
+}

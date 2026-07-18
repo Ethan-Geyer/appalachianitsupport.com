@@ -1,0 +1,50 @@
+---
+permalink: /dashboard
+title: Appalachian IT Support - dashboard
+---
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <script src="https://alcdn.msauth.net/browser/2.37.0/js/msal-browser.min.js"></script>
+    <script src="auth.js"></script>
+</head>
+<body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        if (!getAccount()) {
+            window.location.href = "login.html";
+        }
+    });
+</script>
+
+<div class="auth-wrapper">
+
+    <div class="auth-card">
+        <h1>Client Dashboard</h1>
+        <p>Welcome, <span id="username"></span></p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="auth-logo">
+        <img src="your-logo.png" alt="Appalachian IT Support Logo">
+    </div>
+
+</div>
+
+<script>
+    const user = getAccount();
+    if (user) {
+        document.getElementById("username").innerText = user.username;
+    }
+</script>
+
+</body>
+</html>
