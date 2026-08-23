@@ -248,3 +248,24 @@
 			._parallax();
 
 })(jQuery);
+
+
+// Show popup
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("promoPopup").style.display = "block";
+  }, 1500);
+});
+
+// Event delegation: works even if other scripts interfere
+document.addEventListener("click", (e) => {
+  if (e.target.matches("[data-close-popup]")) {
+    document.getElementById("promoPopup").style.display = "none";
+  }
+
+  // Close when clicking outside the popup
+  if (e.target.id === "promoPopup") {
+    document.getElementById("promoPopup").style.display = "none";
+  }
+});
+
