@@ -4279,27 +4279,34 @@ input, select, textarea {
 }
 
 
-/* Fix article card text visibility */
+/* Article Card Styling */
 .articles .article-card {
     display: block;
     padding: 1.5em;
-    background: #ffffff;
-    color: #000000;
+    background: #2f2f2f;   /* medium grey */
+    color: #ffffff;        /* white text */
     border-radius: 8px;
     margin-bottom: 1.5em;
 }
 
+/* Ensure headings + paragraphs show correctly */
 .articles .article-card h3,
 .articles .article-card p {
-    color: #000000 !important;
+    color: #ffffff !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
+/* Read More link */
 .articles .article-card a {
     display: inline-block;
     margin-top: 0.5em;
-    color: #007bff;
+    color: #4da3ff;        /* light blue link */
+    text-decoration: none;
+}
+
+.articles .article-card a:hover {
+    text-decoration: underline;
 }
 
 
