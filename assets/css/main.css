@@ -4279,5 +4279,27 @@ input, select, textarea {
 }
 
 
+/* Fix article card text visibility */
+.articles .article-card {
+    display: block;
+    padding: 1.5em;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+}
+
+.articles .article-card h3,
+.articles .article-card p {
+    color: #000000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.articles .article-card a {
+    display: inline-block;
+    margin-top: 0.5em;
+    color: #007bff;
+}
 
 
