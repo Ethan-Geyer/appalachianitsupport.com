@@ -1,0 +1,211 @@
+---
+permalink: /articles/dns-basics
+title: DNS Basics: Understanding How Domain Names Work
+---
+
+
+<!DOCTYPE HTML>
+<!--
+    Landed by HTML5 UP
+-->
+<html>
+    <head>
+        <title>DNS Basics: Understanding How Domain Names Work</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <header id="header">
+                <h1 id="logo"><a href="/">Appalachian IT Support</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li>
+                            <a href="#">Services</a>
+                            <ul>
+                                <li><a href="/connect">Remote Support</a></li>
+                                <li><a href="/dispatch-support">In Person Support</a></li>
+                                <li><a href="/devices">What We support</a></li>
+                                <li>
+                                    <a href="#">Expand</a>
+                                    <ul>
+                                        <li><a href="/faq">FAQs</a></li>
+                                        <li><a href="/the-mountain-shield">Get the Mountain Sheild</a></li>
+                                        <li><a href="/senior-tech-support">Senior-Friendly Tech Support</a></li>
+                                        <li><a href="#">.</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/login" class="button primary">Account</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main -->
+            <div id="main" class="wrapper style1">
+                <div class="container">
+                    <header class="major">
+                        <h2>Understanding DNS: Why Your Internet Breaks</h2>
+                        <p>A simple explanation of DNS failures and how to troubleshoot them</p>
+                    </header>
+
+                    <!-- Article content -->
+
+                    <body>
+
+                        <p>
+                            When your internet stops working, it is easy to blame your provider or assume something is wrong with your router.
+                            In many cases, the real problem is something far simpler. DNS is failing. DNS is one of the most important parts
+                            of how the internet works, yet most people never hear about it until something breaks.
+                        </p>
+
+                        <p>
+                            DNS stands for Domain Name System. It is the service that turns names like google.com into the actual numerical
+                            IP addresses that computers use to communicate. Without DNS, your browser has no idea where to go. It is like
+                            trying to call someone without knowing their phone number. You can type the name all you want, but nothing will happen.
+                        </p>
+
+                        <h3>Why DNS matters</h3>
+
+                        <p>
+                            Every time you visit a website, open an app, or start a game, your device asks a DNS server for directions.
+                            If the DNS server responds, everything works. If it does not, your internet appears to be down even though your
+                            connection is fine. This is why DNS issues can feel random or confusing. You might be able to load one site but
+                            not another. You might be able to use an app on your phone but not on your computer. The underlying connection
+                            is still there. The problem is that your device cannot find what it is looking for.
+                        </p>
+
+                        <h3>Common signs of DNS failure</h3>
+
+                        <ul>
+                            <li>Websites refuse to load even though your WiFi or Ethernet shows connected</li>
+                            <li>Some sites work while others fail</li>
+                            <li>Apps that rely on online services stop responding</li>
+                            <li>You can ping an IP address, but you cannot reach it by name</li>
+                            <li>Your router shows internet access, but nothing loads in the browser</li>
+                        </ul>
+
+                        <p>
+                            These symptoms often lead people to restart their modem or call their ISP, but DNS problems usually start on the
+                            device or the router itself.
+                        </p>
+
+                        <h3>What causes DNS to break</h3>
+
+                        <p>DNS failures can come from several sources. The most common ones include:</p>
+
+                        <ul>
+                            <li>Your ISP’s DNS servers are overloaded or temporarily offline</li>
+                            <li>Your router is using outdated or incorrect DNS settings</li>
+                            <li>A VPN or security tool is intercepting DNS requests</li>
+                            <li>A custom DNS service like Pi-hole is blocking or misrouting queries</li>
+                            <li>Cached DNS entries are stuck or corrupted</li>
+                        </ul>
+
+                        <p>
+                            None of these require deep technical knowledge to fix. Most can be solved in a few minutes.
+                        </p>
+
+                        <h3>How to troubleshoot DNS problems</h3>
+
+                        <p>Start with the simplest steps and work your way up.</p>
+
+                        <ol>
+                            <li>
+                                <strong>Try another website</strong><br>
+                                If only one site is failing, the problem may be on the website’s end.
+                            </li>
+                            <li>
+                                <strong>Restart your device</strong><br>
+                                This clears local DNS cache and resets the network stack.
+                            </li>
+                            <li>
+                                <strong>Flush DNS cache manually</strong><br>
+                                On Windows, open Command Prompt and run:<br>
+                                <code>ipconfig /flushdns</code>
+                            </li>
+                            <li>
+                                <strong>Change your DNS server</strong><br>
+                                Switch to a reliable public DNS provider. Popular choices include:<br>
+                                Cloudflare (1.1.1.1)<br>
+                                Google DNS (8.8.8.8)<br>
+                                OpenDNS (208.67.222.222)<br>
+                                Changing DNS often fixes issues instantly.
+                            </li>
+                            <li>
+                                <strong>Check your router’s DNS settings</strong><br>
+                                Some routers use your ISP’s DNS by default. If those servers are having trouble, your whole network will feel
+                                broken. Setting your router to use Cloudflare or Google DNS can stabilize everything.
+                            </li>
+                            <li>
+                                <strong>Disable VPNs or security filters temporarily</strong><br>
+                                VPNs, firewalls, and filtering tools sometimes block or reroute DNS traffic. Turning them off for a moment can
+                                reveal whether they are the cause.
+                            </li>
+                            <li>
+                                <strong>Test DNS directly</strong><br>
+                                Use the command:<br>
+                                <code>nslookup example.com</code><br>
+                                If it returns an IP address, DNS is working. If it fails, you know exactly where the problem is.
+                            </li>
+                        </ol>
+
+                        <h3>Why DNS issues feel worse than they are</h3>
+
+                        <p>
+                            DNS failures create the illusion of a total internet outage. In reality, the connection is still there.
+                            Your device simply cannot translate names into addresses. Once you understand how DNS works, the problem becomes
+                            much less mysterious. Most DNS issues can be fixed faster than a full reboot of your network.
+                        </p>
+
+                        <h3>Final thoughts</h3>
+
+                        <p>
+                            DNS is one of the quiet foundations of the internet. When it works, you never notice it. When it fails, everything
+                            stops. Learning how to identify and troubleshoot DNS problems can save you time, frustration, and unnecessary
+                            support calls. With a few simple checks, you can often get your connection working again in minutes.
+                        </p>
+                    </body>
+                    </html>
+
+
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://github.com/AppalachianITSupport" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="mailto:info@appalachianitsupport.com?subject=Support Request&body=Hello%2C%20I%20need%20help%20with..." class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+
+                <ul class="copyright">
+                    <li>&copy; www.appalachianitsupport.com. All rights reserved.</li>
+                    <li><a href="/Privacy-Policy">Privacy Policy & Terms</a></li>
+                    <li>Template: <a href="http://html5up.net">HTML5 UP, Modified by Appalachian IT Support</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/jquery.scrolly.min.js"></script>
+        <script src="/assets/js/jquery.dropotron.min.js"></script>
+        <script src="/assets/js/jquery.scrollex.min.js"></script>
+        <script src="/assets/js/browser.min.js"></script>
+        <script src="/assets/js/breakpoints.min.js"></script>
+        <script src="/assets/js/util.js"></script>
+        <script src="/assets/js/main.js"></script>
+
+    </body>
+</html>
